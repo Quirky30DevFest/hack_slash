@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<style>
+
+img{
+	padding: 40px;
+width: 50px;
+height: 50px;
+
+}
+
+footer{
+	text-align: center;
+	position: center;
+	padding: 50px;
+	
+}	
+
+.button {
+position: left;
+  color: #800080;
+}
+</style>
+
+<br>
+<!--
+  Ideally these elements aren't created until it's confirmed that the 
+  client supports video/camera, but for the sake of illustrating the 
+  elements involved, they are created with markup (not JavaScript)
+-->
+<video id="video" width="640" height="480" autoplay></video>
+<button id="snap">Snap Photo</button>
+<canvas id="canvas" width="640" height="480"></canvas>
+
+<script>
+// Grab elements, create settings, etc.
+var video = document.getElementById('video');
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+    });
+}
+
+/* Legacy code below: getUserMedia 
+else if(navigator.getUserMedia) { // Standard
+    navigator.getUserMedia({ video: true }, function(stream) {
+        video.src = stream;
+        video.play();
+    }, errBack);
+} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+    navigator.webkitGetUserMedia({ video: true }, function(stream){
+        video.src = window.webkitURL.createObjectURL(stream);
+        video.play();
+    }, errBack);
+} else if(navigator.mozGetUserMedia) { // Mozilla-prefixed
+    navigator.mozGetUserMedia({ video: true }, function(stream){
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+    }, errBack);
+}
+*/
+
+
+// Elements for taking the snapshot
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video');
+
+// Trigger photo take
+document.getElementById("snap").addEventListener("click", function() {
+  context.drawImage(video, 0, 0, 640, 480);
+});
+
+</script>
+<br>
+
+<div class="container">
+ 
+  
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Comment</button>
+  <div id="demo" class="collapse in">
+    <textarea placeholder="" cols="30" rows="5"></textarea>
+
+
+<input type="file" accept="image/*" capture="camera" />
+
+  </div>
+</div>
+    
+<br>
+<br>
+<footer>
+<a href=".html"><button ion-button type="Next">Next </button></a>
+
+</footer>
+
+</body>
+
+</html>
