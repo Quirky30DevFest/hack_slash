@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
 
   <title>Home</title>
       <meta charset="utf-8">
@@ -6799,12 +6798,76 @@ body{
 .navbar-brand {
   margin-top: fixed;
 }
+
+.myIndex {
+    width: 200px;
+    height: 200px;
+    margin: 0px 300px 200px;
+    border-radius: 100px;
+}
+h2 {
+  text-align: center;
+  color: red;
+  font-size: 40px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #DCDCDC;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #800080;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+  /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+body{
+  background-color: #DCDCDC;
+}
      </style>
 
 <br>
 <br>
-<br>
-<br>
+    
+
+
+
+
 
 
 
@@ -6835,19 +6898,21 @@ body{
 <section class="jumbotron">
     <div class="container">
       <div class="row text-center">
-      <a href="my account.html" class="btn btn-primary">My Account</a>
+      <a class="btn btn-primary" href="#" onclick="window.open('https://www.tfg.co.za/accounts', '_system', 'location=yes'); return false;">My Account</a>
+                
       <br />
       <br />
-      <a href="https://www.tfg.co.za/help?cat_id=15" class="btn btn-primary">My Voucher</a>
+      <a class="btn btn-primary" href="#" onclick="window.open('https://www.tfg.co.za/help?cat_id=15', '_system', 'location=yes'); return false;">My Voucher</a>
 
           <a href="comments.html" class="btn btn-primary">Comment</a>
-
-          
+<br>
+<br>
+<a class="btn btn-primary" href="#" onclick="window.open('https://www.google.co.za/search?q=westerncape+location&oq=westerncape+location&aqs=chrome..69i57j0l5.12518j0j7&sourceid=chrome&ie=UTF-8#tbm=lcl&q=cape+locations', '_system', 'location=yes'); return false;">Location</a>
+        
       </div>
    </div>
  </section>
-
-
 </body>
+
 
 </html>
